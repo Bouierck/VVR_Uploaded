@@ -1,23 +1,14 @@
-jeu: main.o init.o glm.o commun.o jeu.o voiture.o objetsNiveaux.o
-	gcc -o ../bin/jeu main.o init.o glm.o commun.o jeu.o voiture.o objetsNiveaux.o -I ../include -L ../lib -lmingw32 -lfreeglut -lSOIL -lopengl32 -lglu32
+test: RawModel.o Renderer.o list.o TestOpenGLGLFW.o
+	gcc -o ../bin/testGLGLFW RawModel.o Renderer.o list.o TestOpenGLGLFW.o -I ../include -L ../lib -lmingw32 -lglew32 -lglfw3 -lgdi32 -lopengl32
 
-main.o: ../src/main.c
-	gcc -o main.o -c ../src/main.c -I ../include
+list.o: ../src/list.c
+	gcc -o list.o -c ../src/list.c -I ../include
 
-init.o: ../src/init.c
-	gcc -o init.o -c ../src/init.c -I ../include
-	
-glm.o: ../src/glm.c
-	gcc -o glm.o -c ../src/glm.c -I ../include	
+RawModel.o: ../src/RawModel.c
+	gcc -o RawModel.o -c ../src/RawModel.c -I ../include 
 
-commun.o: ../src/commun.c
-	gcc -o commun.o -c ../src/commun.c -I ../include
+Renderer.o: ../src/Renderer.c
+	gcc -o Renderer.o -c ../src/Renderer.c -I ../include 
 
-jeu.o: ../src/jeu.c
-	gcc -o jeu.o -c ../src/jeu.c -I ../include
-
-voiture.o: ../src/voiture.c
-	gcc -o voiture.o -c ../src/voiture.c -I ../include
-
-objetsNiveaux.o: ../src/objetsNiveaux.c
-	gcc -o objetsNiveaux.o -c ../src/objetsNiveaux.c -I ../include
+TestOpenGLGLFW.o: ../src/TestOpenGLGLFW.c
+	gcc -o TestOpenGLGLFW.o -c ../src/TestOpenGLGLFW.c -I ../include
