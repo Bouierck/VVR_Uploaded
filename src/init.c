@@ -155,6 +155,16 @@ void loadResources(){
         SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_INVERT_Y
     );
 
+
+
+
+
+
+
+
+
+
+
     //obj
 
     if (!voitureModel1){
@@ -191,3 +201,79 @@ void loadResources(){
 
     printf("\nFin chargement textures\n");
 }
+
+
+
+
+void loadResourcesNiv2(){
+    printf("debut\n");
+    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
+    
+    
+    //Route66 ROAD
+    TexArray[TEXTURE_SAND]=SOIL_load_OGL_texture(
+        "img/route66/sand.jpg",
+        SOIL_LOAD_AUTO,
+        SOIL_CREATE_NEW_ID,
+        SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_INVERT_Y
+    );
+
+    TexArray[TEXTURE_CIEL] = SOIL_load_OGL_texture(
+        "img/route66/sky.jpg",
+        SOIL_LOAD_AUTO,
+        SOIL_CREATE_NEW_ID,
+        SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_INVERT_Y
+    );
+
+
+    TexArray[TEXTURE_ROUTE] = SOIL_load_OGL_texture(
+        "img/route66/img_road.jpg",
+        SOIL_LOAD_AUTO,
+        SOIL_CREATE_NEW_ID,
+        SOIL_FLAG_TEXTURE_REPEATS
+    );
+    printf("Texture route66 route creee + stocké en mémoire\n");
+
+}
+
+
+
+void loadResourcesNiv3(){
+    printf("debut\n");
+    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
+    
+    //RAINBOW ROAD
+    TexArray[TEXTURE_SAND]=SOIL_load_OGL_texture(
+        "img/rainbow/sand.jpg",
+        SOIL_LOAD_AUTO,
+        SOIL_CREATE_NEW_ID,
+        SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_INVERT_Y
+    );
+
+    TexArray[TEXTURE_CIEL] = SOIL_load_OGL_texture(
+        "img/rainbow/sky.jpg",
+        SOIL_LOAD_AUTO,
+        SOIL_CREATE_NEW_ID,
+        SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_INVERT_Y
+    );
+
+
+    TexArray[TEXTURE_ROUTE] = SOIL_load_OGL_texture(
+        "img/rainbow/img_road.jpg",
+        SOIL_LOAD_AUTO,
+        SOIL_CREATE_NEW_ID,
+        SOIL_FLAG_TEXTURE_REPEATS
+    );
+
+    printf("Texture rainbow route creee + stocké en mémoire\n");
+}
+
+   /* TexArray[TEXTURE_VOITURE1] = SOIL_load_OGL_texture(
+        "img/rainbow/car.jpg",
+        SOIL_LOAD_AUTO,
+        SOIL_CREATE_NEW_ID,
+        SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_INVERT_Y
+    );
+*/
+
+    //printf("\nFin chargement textures\n");

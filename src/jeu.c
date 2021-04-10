@@ -17,13 +17,13 @@ int avantArriereKey = 0;
 
 int currentObj = 0;
 float position;
-
 int gameOver = 0;
-
+static float vitesseAffiche = 0;
 /**
  * @fn enterGame 
  * @brief Entrée dans le jeu, load des fonctionnalités de touche
  */
+
 
 void enterGame(){
     gameOver = 0;
@@ -53,24 +53,38 @@ void enterGame(){
     //Init de la voiture du joueur
     if(niveau == 1)
         voitureJoueur.textureVoiture = TEXTURE_VOITURE1;
-    if(niveau == 2)
+    if(niveau == 2){
+        printf("----------------------------- Load Niveau 2 ---------------------------\n");
+        loadResourcesNiv2();
         voitureJoueur.textureVoiture = TEXTURE_VOITURE1;
+    }
+    if(niveau==3){
+        printf("--------------------------- Load Niveau 3 -------------------------\n");
+        loadResourcesNiv3();
+        //voitureJoueur.textureVoiture = TEXTURE_VOITURE1;
+    }
     voitureJoueur.velocite = 0;
     voitureJoueur.acceleration = 0;
     voitureJoueur.x = 0;
     voitureJoueur.y = 0;
     voitureJoueur.rotation = 0;
     voitureJoueur.rotationRoue = 0;
+printf("velo : %.4f\naccel : %.4f\nX: %i,Y:%i\n",voitureJoueur.velocite,voitureJoueur.acceleration,voitureJoueur.x,voitureJoueur.y);
 
     if(niveau == 1){
         initNiveau1();
         nbObjetsNiveauAct = &nbObjetsNiveau1;
         objetsNiveauAct = &objetsNiveau1;
     }
-    if(niveau == 2){
+    if(niveau == 2){  
         initNiveau2();
         nbObjetsNiveauAct = &nbObjetsNiveau2;
         objetsNiveauAct = &objetsNiveau2;
+    }
+    if(niveau==3){
+        initNiveau3();
+        nbObjetsNiveauAct = &nbObjetsNiveau3;
+        objetsNiveauAct = &objetsNiveau3;
     }
 
     gameLoop();
@@ -114,6 +128,7 @@ void updateJeu(){
                         GamePlaying = 1;
                         gameOver = 1;
                         voitureJoueur.velocite = 0;
+                        voitureJoueur.acceleration = 0;
                         break; 
                     }
         }
@@ -129,7 +144,7 @@ void updateJeu(){
 
 void compteurRender(){
     
-    static float vitesseAffiche = 0;
+
 
     if(vitesseAffiche == 0)
         vitesseAffiche = voitureJoueur.velocite;
@@ -270,13 +285,13 @@ void victoireRender(){
     glPopMatrix();
 
 }
-
+/*
 void EnterEvents(){
     if(gameOver==1){
         enterGame();
     }
 }
-
+*/
 
 
 /**
@@ -329,15 +344,24 @@ void jeuSpecialKeyUp(int key, int x, int y){
     }
 }
 
+
 /**
  * @fn jeuAsciiKey 
  * @brief Recupere les touches pour fin de jeu et pause
  */
 
 void jeuAsciiKey(int key, int x, int y){
-    if (gameOver){
+    if (gameOver==1){
         if (key == 13){ //Quitter le jeu
             quitterjeu();
+            //no comprendo pourquoi les objets restent
+            enterGame();
+        }
+        return;
+    }else if(gameOver==-1){
+        if (key == 13){ //Quitter le jeu
+            quitterjeu();
+            niveau++;
             enterGame();
         }
         return;
@@ -504,13 +528,24 @@ void jeuRender(){
  * 
  */
 void updateVoitureJoueur(){
-
+printf("TEmps last update : %i---------------------------------------------------------------------------------\n",temps_last_update);
     printf("Velocité : %.4f, accel : %.4f ", voitureJoueur.velocite, voitureJoueur.acceleration);
 
     if(avantArriereKey == 1){
-        if(voitureJoueur.velocite < 1.1)
+        if(voitureJoueur.velocite < 1.1){
             voitureJoueur.acceleration = 1;
-        else
+            /*switch(niveau){
+                case 1:
+                    voitureJoueur.acceleration = 1;
+                    break;
+                case 2:
+                    voitureJoueur.acceleration = 0.5;
+                    break;
+                default:
+                    voitureJoueur.acceleration = 0.5;
+            }
+            */
+        }else
             voitureJoueur.acceleration = 2 / (log10f(voitureJoueur.velocite)*16);
     }
     else if (avantArriereKey == -1)
@@ -572,12 +607,12 @@ void updateObjets(){
     int i;
 
     for(i = 0; i < *nbObjetsNiveauAct; i++){
-        float dist;
+        float dist=0;
         dist=voitureJoueur.velocite*temps_last_update/15.0;
         objetsNiveauAct[i].y -= fabs(dist);
 
         if (objetsNiveauAct[i].type == TYPE_OBSTACLE_MOUV){
-            objetsNiveauAct[i].x += objetsNiveauAct[i].sens * .3;
+            objetsNiveauAct[i].x += objetsNiveauAct[i].sens * .2;
             if (fabs(objetsNiveauAct[i].x) > 3){
                 objetsNiveauAct[i].sens *= -1;
             }
@@ -633,6 +668,6 @@ void quitterjeu(){
     glutMouseWheelFunc(NULL);
     glutMotionFunc(NULL);
 
-    free(&(*objetsNiveauAct));
-    
+   free(&(*objetsNiveauAct));
+
 }

@@ -52,26 +52,26 @@ void initNiveau1(){
 
 
 objet objetsNiveau2[21] = {
-    {2, 100, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_MOUV, -1},
+    {2, 100, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_MOUV, -1},//1
     {1, 200, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
     {-1, 250, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
     {2, 350, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
-    {-1, 420, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
+    {-1, 420, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},//5
     {2, 480, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
-    {1, 520, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
+    {1, 520, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_MOUV, -1},
     {-3, 700, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
     {1, 790, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
-    {2, 850, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
-    {-2, 1100, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
+    {2, 850, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, -1},//10
+    {-2, 1100, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_MOUV, -1},
     {0, 1200, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
     {2, 1250, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
     {-1, 1350, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
-    {-2, 1420, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
-    {1, 1480, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
+    {-2, 1420, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, -1},//15
+    {1, 1480, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_MOUV, -1},
     {3, 1520, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
     {0, 1700, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
     {-3, 1790, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
-    {-1, 1850, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},
+    {-1, 1850, 0, TEXTURE_POUBELLE, NULL, TYPE_OBSTACLE_FIXE, 0},//20
     {0,2000,0,TEXTURE_NONE,NULL, TYPE_FINISH}
     };
 
@@ -84,16 +84,16 @@ void initNiveau2(){
     objetsNiveau2[3].model = poubelleModel;
     objetsNiveau2[4].model = poubelleModel;
     objetsNiveau2[5].model = poubelleModel;
-    objetsNiveau2[6].model = poubelleModel;
+    objetsNiveau2[6].model = ovniModel;
     objetsNiveau2[7].model = poubelleModel;
     objetsNiveau2[8].model = poubelleModel;
     objetsNiveau2[9].model = poubelleModel;
-    objetsNiveau2[10].model = poubelleModel;
+    objetsNiveau2[10].model = ovniModel;
     objetsNiveau2[11].model = poubelleModel;
     objetsNiveau2[12].model = poubelleModel;
     objetsNiveau2[13].model = poubelleModel;
     objetsNiveau2[14].model = poubelleModel;
-    objetsNiveau2[15].model = poubelleModel;
+    objetsNiveau2[15].model = ovniModel;
     objetsNiveau2[16].model = poubelleModel;
     objetsNiveau2[17].model = poubelleModel;
     objetsNiveau2[18].model = poubelleModel;
@@ -154,7 +154,7 @@ int nbObjetsNiveau3 = 41;
 void initNiveau3(){
     objetsNiveau3[0].model = poubelleModel;
     objetsNiveau3[1].model = poubelleModel;
-    objetsNiveau3[3].model = poubelleModel;
+    objetsNiveau3[2].model = poubelleModel;
     objetsNiveau3[3].model = poubelleModel;
     objetsNiveau3[4].model = poubelleModel;
     objetsNiveau3[5].model = poubelleModel;
@@ -164,7 +164,7 @@ void initNiveau3(){
     objetsNiveau3[9].model = poubelleModel;
     objetsNiveau3[10].model = poubelleModel;
     objetsNiveau3[11].model = poubelleModel;
-    objetsNiveau3[13].model = poubelleModel;
+    objetsNiveau3[12].model = poubelleModel;
     objetsNiveau3[13].model = poubelleModel;
     objetsNiveau3[14].model = poubelleModel;
     objetsNiveau3[15].model = poubelleModel;
