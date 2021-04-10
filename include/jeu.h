@@ -18,8 +18,6 @@ double boucleRoute;
 long temps_last_update, temps_total;
 
 Voiture voitureJoueur;
-
-
 void enterGame();
 void gameLoop();
 void jeuRender();

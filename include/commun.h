@@ -27,7 +27,7 @@
 #define NF 1000/FPS
 
 int GamePlaying; //0 : off, 1 : pause, 2 : running,
-int niveau; //1 : Retrowave, 2 : Desert
+int niveau; //1 : Retrowave, 2 : Rainbow
 
 //text
 GLuint TexArray[20]; //tab des textures

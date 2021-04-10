@@ -15,6 +15,7 @@ typedef struct{
 void objetRender(objet obj);
 void initNiveau1();
 void initNiveau2();
+void initNiveau3();
 
 extern int nbObjetsNiveau1;
 extern objet objetsNiveau1[];
