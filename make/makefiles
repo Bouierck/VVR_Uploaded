@@ -1,8 +1,8 @@
-jeu: main.o init.o glm.o commun.o jeu.o voiture.o objetsNiveaux.o MainMenu.o easySDL.o VVR.o SoloCircuitMenu.o SoloVoitureMenu.o
-	gcc -o ../bin/jeu main.o init.o glm.o commun.o jeu.o voiture.o objetsNiveaux.o MainMenu.o SoloCircuitMenu.o SoloVoitureMenu.o easySDL.o VVR.o -I ../include -L ../lib -lmingw32 -lfreeglut -lSOIL -lopengl32 -lglu32 -lSDL2 -lSDL2_mixer
+jeu: VVR.o main.o init.o glm.o commun.o jeu.o voiture.o objetsNiveaux.o MainMenu.o easySDL.o SoloCircuitMenu.o SoloVoitureMenu.o
+	gcc -o ../bin/combined VVR.o main.o init.o glm.o commun.o jeu.o voiture.o objetsNiveaux.o MainMenu.o SoloCircuitMenu.o SoloVoitureMenu.o easySDL.o -I ../include -L ../lib -lmingw32 -lfreeglut -lSOIL -lopengl32 -lglu32 -lSDL2 -lSDL2_mixer
 
-vvr: MainMenu.o easySDL.o VVR.o SoloCircuitMenu.o SoloVoitureMenu.o
-	gcc -o ../bin/VVRSDL MainMenu.o SoloCircuitMenu.o SoloVoitureMenu.o easySDL.o VVR.o -I ../include -L ../lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_mixer
+#vvr: MainMenu.o easySDL.o VVR.o SoloCircuitMenu.o SoloVoitureMenu.o
+#	gcc -o ../bin/VVRSDL MainMenu.o SoloCircuitMenu.o SoloVoitureMenu.o easySDL.o VVR.o -I ../include -L ../lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_mixer
 
 main.o: ../src/main.c
 	gcc -o main.o -c ../src/main.c -I ../include

@@ -13,12 +13,14 @@
 #include <stdio.h>
 #include <init.h>
 #include <jeu.h>
+//#include <SDL/VVR.h>
 
-int main(int argc, char* argv[]){
-    printf("*** Init de la fenetre ***\n\n");
+int main(int argc, char *argv[]){
+    //VVR_SDL();
+    //printf("*** Init de la fenetre ***\n\n");
     initWindow(argc, argv); //Window + Resources + Setup GL
 
-    niveau = atoi(argv[1]);
+    niveau = 1;
     printf("\nNiveau : %d\n", niveau);
     
     enterGame();
